@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: sans-serif;
+    }
+    
+    .container {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      
+    }
+    
+    .title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    .input-group {
+      width: 100%;
+    }
+    
+    .input-group input {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 95%;
+      
+    }
+    
+    .input-group label {
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    
+
+    
+    .btn-login {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      width: 40%;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    left: 30%;
+    }
+    
+    
+
+    .btn-login:hover {
+      background-color: #38761d;
+    }
+    
+    .forgot-password {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .forgot-password a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Login</h1>
+    <form action="/login" method="post">
+      <div class="form-group">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="btn-login">Login</button>
+      </div>
+      
+      <div class="forgot-password">
+        <a href="#">Forgot password?</a>
+      </div>
+    </form>
+  </div>
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDucz-SMM5igy0gHxoJ3Dwxk0B7nTgQI-M",
+    authDomain: "test-316c4.firebaseapp.com",
+    projectId: "test-316c4",
+    storageBucket: "test-316c4.appspot.com",
+    messagingSenderId: "150243191496",
+    appId: "1:150243191496:web:222644ff3bf06a769b53fd"
+  };
+
+  // Initialize Firebase
+
+  const email="christian.nazate@epn.edu.ec"
+  const password="12345678";
+  const app = initializeApp(firebaseConfig);
+
+  
+
+  const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+</script>
+
+</html>
