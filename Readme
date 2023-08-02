@@ -1,0 +1,3 @@
+La carpeta dist se incluye en este repositorio. Sin embargo, no es recomendable hacerlo.
+El archivo .env que alberga la Api key tampoco se incluye por seguridad.
+La carpeta node_modules tampoco se incluye.
